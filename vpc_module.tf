@@ -79,29 +79,26 @@ resource "aws_route_table" "private_table" {
 }
 
 
-resource "aws_route_table_association" "public_1" {
-  subnet_id      = "${var.public_subnet_id_1 }"
+resource "aws_route_table_association" "public" {
+
+   count =     " ${var.count_public_subnet}"
+   subnet_id     = "${var.public_subnet_id[count.index] }"
   route_table_id = "${var.public_table_id}"
 }
 
 
-resource "aws_route_table_association" "public_2" {
-  subnet_id      = "${var.public_subnet_id_2 }"
-  route_table_id = "${var.public_table_id}"
+
+
+resource "aws_route_table_association" "private" {
+   
+     count =     " ${var.count_private_subnet}"
+    subnet_id     = "${var.private_subnet_id[count.index]}"
+   route_table_id = " ${var.private_table_id}"
 }
 
 
 
-resource "aws_route_table_association" "private_1" {
-  subnet_id      = "${var.private_subnet_id_1}"
-  route_table_id = " ${var.private_table_id}"
-}
 
-
-resource "aws_route_table_association" "private_2" {
-  subnet_id      = "${var.private_subnet_id_2}"
-  route_table_id = " ${var.private_table_id}"
-}
 
 
 
