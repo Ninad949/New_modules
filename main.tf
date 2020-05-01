@@ -5,7 +5,7 @@ provider "aws" {
 
 module "my_vpc" {
   
-    source= "/home/modules"
+    source= "/home/repo_tera/Terraform_modules/New_modules/modules"
   
     vpc_cidr = "10.0.0.0/16"
 
@@ -17,9 +17,9 @@ module "my_vpc" {
 
   count_public_subnet = 2
 
-private_subnets = "${module.my_vpc.private_subnets}"
+private_subnets = "${module.vpc_module.private_subnets}"
 
-public_subnets = "${module.my_vpc.public_subnets}"
+public_subnets = "${module.vpc_module.public_subnets}"
 
 #public_subnet_id = "${module.my_vpc.public_subnet_id}"
 
