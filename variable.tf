@@ -41,32 +41,22 @@ default = ""
 
 }
 
-variable "public_subnet_id_1" {
+variable "public_subnet_id"{
+type  = list (string)
 
-
-default = ""
+default = []
 }
 
 
-variable "private_subnet_id_1" {
 
+variable "private_subnet_id" {
 
-default = ""
+type  = list (string)
+
+default = []
 }
 
 
-variable "private_subnet_id_2" {
-
-
-default = ""
-}
-
-
-variable "public__subnet_id_2" {
-
-
-default = ""
-}
 
 
 variable "public_table_id"  {
