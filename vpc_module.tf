@@ -49,7 +49,7 @@ resource "aws_route_table" "public_table" {
 
 
   #  count =       " ${var.count_public_subnet}"
-    cidr_block =  "$ var.public_subnets"
+    cidr_block =  "${var.vpc_cidr}"
     gateway_id = "${aws_internet_gateway.main.id }"
   }
 
@@ -68,7 +68,7 @@ resource "aws_route_table" "private_table" {
   route {
 
  #   count =    "${var.count_private_subnet}"
-    cidr_block  ="$ var.private_subnets"
+    cidr_block  ="${var.vpc_cidr}"
 
   }
 
