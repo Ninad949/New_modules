@@ -13,28 +13,22 @@ output "private_table_id" {
 }
 
 
-output "public_subnet_id_1" {
+output "public_subnet_id" {
 
-value = "${aws_subnet.public_subnets[0].public.id}"
+#type = list(string)
 
-}
-
-output "public_subnet_id_2" {
-
-value = "${aws_subnet.public_subnets[1].public.id}"
+value = "${aws_subnet.public_subnets.public.id}"
 
 }
 
-output "private_subnet_id_1" {
 
-value = "${aws_subnet.private_subnets[0].private.id}"
+output "private_subnet_id" {
 
-}
-output "private_subnet_id_2" {
-
-value = "${aws_subnet.private_subnets[1].private.id}"
+#type = list(string)
+value = "${aws_subnet.private_subnets.private.id}"
 
 }
+
 
 #output "internet__id "  {
 
